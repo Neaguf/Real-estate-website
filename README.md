@@ -13,6 +13,8 @@ A full-stack real estate marketplace built with Next.js and Laravel.
 
 - Docker
 - Docker Compose
+- Node.js 20+
+- npm
 
 ## Setup
 
@@ -34,6 +36,13 @@ Copy-Item backend/.env.example backend/.env
 Copy-Item frontend/.env.example frontend/.env.local
 ```
 
+Start the frontend locally from the `frontend` folder:
+
+```bash
+npm install
+npm run dev
+```
+
 ## URLs
 
 - Frontend: `http://localhost:3000`
@@ -42,6 +51,8 @@ Copy-Item frontend/.env.example frontend/.env.local
 - Filament admin: `http://localhost:8000/admin`
 - Filament admin via Nginx: `http://localhost/admin`
 - Meilisearch: `http://localhost:7700`
+
+The Docker stack now runs the Laravel backend and supporting services only. The Next.js frontend is intended to run locally with `npm run dev`.
 
 ## Local Demo Admin
 
@@ -63,7 +74,6 @@ docker compose exec backend php artisan make:filament-user
 ```bash
 docker compose ps
 docker compose logs -f backend
-docker compose logs -f frontend
 docker compose exec backend php artisan queue:work
 docker compose down
 ```
